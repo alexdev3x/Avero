@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --app-bg: #08090d;
+  --app-bg-soft: #0d0f16;
+  --app-surface: #14161f;
+  --app-surface-2: #1a1d29;
+  --app-border: rgba(255, 255, 255, 0.08);
+  --app-border-strong: rgba(255, 255, 255, 0.14);
+  --app-text: #f2f3f7;
+  --app-text-muted: #8b8fa3;
+  --app-text-dim: #5c5f70;
+  --app-primary: #7c5cff;
+  --app-primary-soft: #a78bfa;
+  --app-accent: #22d3ee;
+  --app-success: #34d399;
+  --app-danger: #fb7185;
+  --app-warning: #fbbf24;
+}
+
+@theme inline {
+  --color-app-bg: var(--app-bg);
+  --color-app-bg-soft: var(--app-bg-soft);
+  --color-app-surface: var(--app-surface);
+  --color-app-surface-2: var(--app-surface-2);
+  --color-app-border: var(--app-border);
+  --color-app-text: var(--app-text);
+  --color-app-text-muted: var(--app-text-muted);
+  --color-app-text-dim: var(--app-text-dim);
+  --color-app-primary: var(--app-primary);
+  --color-app-primary-soft: var(--app-primary-soft);
+  --color-app-accent: var(--app-accent);
+  --color-app-success: var(--app-success);
+  --color-app-danger: var(--app-danger);
+  --color-app-warning: var(--app-warning);
+  --font-sans: var(--font-inter);
+}
+
+* {
+  border-color: var(--app-border);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--app-text);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--app-primary);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--app-border-strong);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--app-text-dim);
+}
+
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 2.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--app-surface) 25%, var(--app-surface-2) 50%, var(--app-surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
